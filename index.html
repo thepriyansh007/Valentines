@@ -3,141 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day, Aashna!</title>
+    <title>Happy Valentine's Day!</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8d7d9;
+        /* General Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f06292, #ec407a, #9c27b0);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
             text-align: center;
-            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
         }
 
-        header {
-            background-color: #e60000;
-            color: white;
-            padding: 20px;
-            border-bottom: 5px solid #d40000;
+        h1 {
+            font-size: 4rem;
+            animation: textGlow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 10px #ff8a80, 0 0 20px #ff8a80, 0 0 30px #ff8a80;
         }
 
-        header h1 {
-            font-size: 2.5em;
-        }
-
-        /* Heart Animation */
-        .heart {
-            font-size: 3em;
-            color: red;
+        p {
+            font-size: 1.5rem;
             margin-top: 20px;
-            animation: float 3s infinite;
+            animation: fadeIn 3s ease-in-out infinite;
         }
 
-        @keyframes float {
+        .heart {
+            font-size: 5rem;
+            animation: heartBeat 1s infinite;
+            color: #ff1744;
+        }
+
+        @keyframes gradientAnimation {
             0% {
-                transform: translateY(0) rotate(0);
+                background-position: 0% 50%;
             }
             50% {
-                transform: translateY(-30px) rotate(15deg);
+                background-position: 100% 50%;
             }
             100% {
-                transform: translateY(0) rotate(0);
+                background-position: 0% 50%;
             }
         }
 
-        /* Love Message */
-        .message {
-            font-size: 1.5em;
-            margin: 20px 0;
-            color: #444;
-            line-height: 1.5;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Animated Hearts Floating */
-        .floating-heart {
-            position: absolute;
-            top: -50px;
-            animation: heart-float 6s ease-in-out infinite;
-            opacity: 0;
-        }
-
-        .floating-heart:nth-child(1) {
-            left: 20%;
-            animation-duration: 6s;
-            animation-delay: 0s;
-        }
-
-        .floating-heart:nth-child(2) {
-            left: 40%;
-            animation-duration: 8s;
-            animation-delay: 2s;
-        }
-
-        .floating-heart:nth-child(3) {
-            left: 60%;
-            animation-duration: 7s;
-            animation-delay: 1s;
-        }
-
-        .floating-heart:nth-child(4) {
-            left: 80%;
-            animation-duration: 9s;
-            animation-delay: 3s;
-        }
-
-        @keyframes heart-float {
+        @keyframes textGlow {
             0% {
-                top: -50px;
-                opacity: 1;
-            }
-            50% {
-                top: 100%;
-                opacity: 0.5;
+                text-shadow: 0 0 10px #ff8a80, 0 0 20px #ff8a80, 0 0 30px #ff8a80;
             }
             100% {
-                top: -50px;
+                text-shadow: 0 0 30px #ff1744, 0 0 60px #ff1744, 0 0 90px #ff1744;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
                 opacity: 1;
             }
         }
 
-        footer {
-            background-color: #e60000;
-            color: white;
-            padding: 10px;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Happy Valentine's Day, Aashna!</h1>
-</header>
+    <h1>Happy Valentine's Day!</h1>
+    <p>To the love of my life! You make every day special.</p>
+    <div class="heart">❤️</div>
 
-<div class="heart">
-    ❤️
-</div>
-
-<div class="message">
-    <p>My love, every day with you feels like a beautiful dream come true. On this special day, I just want to remind you how much you mean to me. You light up my life in every way, and I am so grateful to share this journey with you. Happy Valentine's Day! 💖</p>
-</div>
-
-<!-- Animated Hearts Floating -->
-<div class="floating-heart">❤️</div>
-<div class="floating-heart">❤️</div>
-<div class="floating-heart">❤️</div>
-<div class="floating-heart">❤️</div>
-
-<footer>
-    <p>With all my love,Priyam !!</p>
-</footer>
+    <script>
+        // Optional: Add moving text effect (scrolling)
+        let heart = document.querySelector(".heart");
+        heart.addEventListener('animationiteration', function() {
+            // Reset the animation to keep it continuous
+            heart.style.animation = 'none';
+            heart.offsetHeight; // Trigger reflow
+            heart.style.animation = 'heartBeat 1s infinite';
+        });
+    </script>
 
 </body>
 </html>
