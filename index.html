@@ -43,6 +43,63 @@
             font-size: 5rem;
             animation: heartBeat 1s infinite;
             color: #ff1744;
+            margin-top: 30px;
+        }
+
+        /* Button Style */
+        .btn-surprise {
+            padding: 15px 30px;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-surprise:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Surprise Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #ff4081;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal h2 {
+            font-size: 2rem;
+        }
+
+        .close-btn {
+            background-color: #ff1744;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1rem;
         }
 
         @keyframes gradientAnimation {
@@ -96,19 +153,32 @@
 </head>
 <body>
 
-    <h1>Happy Valentine's Day!</h1>
-    <p>To the love of my life! You make every day special.</p>
+    <h1>Happy Valentine's Day, My Love!</h1>
+    <p>Every moment with you is like a beautiful dream come true. 💖</p>
+    <p>You fill my heart with joy every single day!</p>
     <div class="heart">❤️</div>
 
+    <button class="btn-surprise" onclick="showSurprise()">Click for a Surprise!</button>
+
+    <!-- Surprise Modal -->
+    <div id="surpriseModal" class="modal">
+        <div class="modal-content">
+            <h2>Surprise! 🎉</h2>
+            <p>You are the love of my life, and I'll cherish you forever! ❤️</p>
+            <button class="close-btn" onclick="closeSurprise()">Close</button>
+        </div>
+    </div>
+
     <script>
-        // Optional: Add moving text effect (scrolling)
-        let heart = document.querySelector(".heart");
-        heart.addEventListener('animationiteration', function() {
-            // Reset the animation to keep it continuous
-            heart.style.animation = 'none';
-            heart.offsetHeight; // Trigger reflow
-            heart.style.animation = 'heartBeat 1s infinite';
-        });
+        // Function to show the surprise modal
+        function showSurprise() {
+            document.getElementById('surpriseModal').style.display = 'flex';
+        }
+
+        // Function to close the surprise modal
+        function closeSurprise() {
+            document.getElementById('surpriseModal').style.display = 'none';
+        }
     </script>
 
 </body>
